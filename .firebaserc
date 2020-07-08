@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firestore-grafica-angularudemy": {
+      "hosting": {
+        "goty": [
+          "firestore-grafica-angularudemy"
+        ]
+      }
+    }
+  }
+}
