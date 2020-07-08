@@ -3,6 +3,8 @@ import { GameService } from '../../services/game.service';
 
 import { Game } from '../../interfaces/interfaces';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-goty',
   templateUrl: './goty.component.html',
@@ -10,7 +12,7 @@ import { Game } from '../../interfaces/interfaces';
 })
 export class GotyComponent implements OnInit {
 
-  juegos: Game [] = [];
+  juegos: Game[] = [];
 
   constructor( private gameService: GameService ) { }
 
@@ -20,7 +22,27 @@ export class GotyComponent implements OnInit {
     this.gameService.getNominados()
         .subscribe( res => {
 
-          this.juegos.push(res);
+          this.juegos = res;
+
+        });
+
+  }
+
+  votarJuego( juego: Game ): void {
+
+    // console.log(juego);
+    this.gameService.votarJuego('123')
+        .subscribe( (res: { ok: boolean, mensaje: string}) => { // El tipado asi o con "tipo any" o una interface
+
+          if ( res.ok === true ) {
+
+            Swal.fire( 'Gracias', res.mensaje, 'success' );
+
+          } else {
+
+            Swal.fire('Oops', res.mensaje, 'error')
+
+          }
 
         });
 
