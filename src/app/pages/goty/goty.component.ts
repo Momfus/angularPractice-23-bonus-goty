@@ -31,7 +31,7 @@ export class GotyComponent implements OnInit {
   votarJuego( juego: Game ): void {
 
     // console.log(juego);
-    this.gameService.votarJuego('123')
+    this.gameService.votarJuego(juego.id)
         .subscribe( (res: { ok: boolean, mensaje: string}) => { // El tipado asi o con "tipo any" o una interface
 
           if ( res.ok === true ) {

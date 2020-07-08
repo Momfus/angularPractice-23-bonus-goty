@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grafico-barra-horizontal',
@@ -7,24 +7,27 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class GraficoBarraHorizontalComponent {
 
-  results: any[] = [
-    {
-      name: 'Juego 1',
-      value: 20
-    },
-    {
-      name: 'Juego 2',
-      value: 25
-    },
-    {
-      name: 'Juego 3',
-      value: 15
-    },
-    {
-      name: 'Juego 4',
-      value: 30
-    },
-  ];
+  @Input() results: any[] = [];
+
+  // Datos usados de ejemplo fijo
+  // results: any[] = [
+  //   {
+  //     name: 'Juego 1',
+  //     value: 20
+  //   },
+  //   {
+  //     name: 'Juego 2',
+  //     value: 25
+  //   },
+  //   {
+  //     name: 'Juego 3',
+  //     value: 15
+  //   },
+  //   {
+  //     name: 'Juego 4',
+  //     value: 30
+  //   },
+  // ];
 
 
   // options
@@ -38,8 +41,6 @@ export class GraficoBarraHorizontalComponent {
   yAxisLabel = 'Votos';
 
   colorScheme =  'nightLights';
-
-  intervalo;
 
   constructor() {}
 

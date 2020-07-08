@@ -11,6 +11,9 @@ import { map } from 'rxjs/operators';
 })
 export class InicioComponent implements OnInit {
 
+
+  juegos: any = []; // Es any (y no Game, se puede hacer otra interface) porque tiene menos atributos que ese
+
   constructor( private db: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -33,9 +36,10 @@ export class InicioComponent implements OnInit {
 
           } )
         )
-        .subscribe( res => {
+        .subscribe( juegos => {
 
-          console.log(res);
+          // console.log(juegos);
+          this.juegos = juegos;
 
 
         });
